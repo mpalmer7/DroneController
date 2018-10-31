@@ -14,3 +14,5 @@ A – Left tilt
 S –  tilt
 
 D – Right tilt
+
+'ESC' - Exit
