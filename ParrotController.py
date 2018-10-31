@@ -1,13 +1,54 @@
-from pyparrot import Bebop
+from pyparrot.Bebop import Bebop
+# msvcrt is a windows specific native module
+import msvcrt
+import time
 
-bebobAddr = "MAC ADDRESS HERE"  # todo
 
-bop = Bebop(bebopAddr, use_wifi=True)
+bebopAddr = "MAC ADDRESS HERE"  # todo
+
+bebop = Bebop()
 
 print("Trying to connect...")
-success = bop.connect(num_retries=3)
-print("connected: "+success)
+success = bebop.connect(10)
+print(success)
+
+print("Sleeping")
+bebop.smart_sleep(5)
+
+bebop.ask_for_state_update()j
 
 if success:
-    # todo
-    pass
+    '''
+    bebop.safe_takeoff(10)
+
+    print("flip left")
+    print("flying state is %s" % bebop.sensors.flying_state)
+    success = bebop.flip(direction="left")
+    print("mambo flip result %s" % success)
+    bebop.smart_sleep(5)
+
+    print("flip right")
+    print("flying state is %s" % bebop.sensors.flying_state)
+    success = bebop.flip(direction="right")
+    print("mambo flip result %s" % success)
+    bebop.smart_sleep(5)
+
+    print("flip front")
+    print("flying state is %s" % bebop.sensors.flying_state)
+    success = bebop.flip(direction="front")
+    print("mambo flip result %s" % success)
+    bebop.smart_sleep(5)
+
+    print("flip back")
+    print("flying state is %s" % bebop.sensors.flying_state)
+    success = bebop.flip(direction="back")
+    print("mambo flip result %s" % success)
+    bebop.smart_sleep(5)
+
+    bebop.smart_sleep(5)
+    bebop.safe_land(10)
+
+    print("DONE - disconnecting")
+    bebop.disconnect()
+    '''
+
