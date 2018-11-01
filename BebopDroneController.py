@@ -95,4 +95,3 @@ if success:
             time.sleep(0.5)
 else:
     print("Could not connect to a drone.")
-
