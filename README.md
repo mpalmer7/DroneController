@@ -8,7 +8,7 @@ Tested and worked with a Bebop2 drone (11/1/18) <br />
 3. Press the below listed keys to control the drone.
 4. Press 'ESC' key to exit and disconnect from the drone.
 
-### Press the key for operation: <br />
+## Key Controls: <br />
 T –Take off <br />
 L –Land <br />
 
