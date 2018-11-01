@@ -90,5 +90,6 @@ if success:
             else:
                 if x.decode() in 'wasdqe':
                     print("Drone landed, please takeoff first!")
+
 else:
     print("Could not connect to a drone.")
