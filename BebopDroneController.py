@@ -83,7 +83,7 @@ if success:
                     print("descend")
                     print("flying state is %s" % bebop.sensors.flying_state)
                     success = bebop.fly_direct(roll=0, pitch=0, yaw=0, vertical_movement=-50, duration=1)
-                    print("mambo directional control result is: %s" % success))
+                    print("mambo directional control result is: %s" % success)
                     bebop.smart_sleep(2)
             else:
                 if x.decode() in 'wasd':
