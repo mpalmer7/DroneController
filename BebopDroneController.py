@@ -3,7 +3,7 @@ from pyparrot.Bebop import Bebop
 import msvcrt
 import time
 
-bebopAddr = "MAC ADDRESS HERE"  # todo
+# bebopAddr = "MAC ADDRESS HERE"  # todo
 
 bebop = Bebop()
 
@@ -37,8 +37,9 @@ if success:
         if x:  # if we got a keyboard hit
             print(x.decode(), end='')  # temp
             if x == chr(27).encode():  # 'ESC' key to exit program
-                print("STOPPING, KEY:", x.decode())
-                break  # break loop
+                print("STOPPING")
+                bebop.disconnect()
+                exit()
             elif x.decode() == 't':
                 if takeoff:
                     print("Drone already took off!")
