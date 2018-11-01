@@ -3,22 +3,8 @@ from pyparrot.Bebop import Bebop
 import msvcrt
 import time
 
-# bebopAddr = "MAC ADDRESS HERE"  # todo
 
-bebop = Bebop()
-
-print("Trying to connect...")
-success = bebop.connect(5)  # recommended 10, lowering for time atm since don't have drone rn
-print(success)
-
-print("Sleeping")
-bebop.smart_sleep(5)
-print("Ready!")
-
-bebop.ask_for_state_update()
-
-
-# asks whether a key has been acquired
+# checks if a key has been hit
 def kbfunc():
     if msvcrt.kbhit():  # boolean for if keyboard has been hit
         return msvcrt.getch()  # returns character encoded in binary ASCII
@@ -26,9 +12,15 @@ def kbfunc():
         return False
 
 
-success = True  # todo Temporary for bug testing
+bebop = Bebop()
+print("Trying to connect...")
+success = bebop.connect(10) # attempts to connect to the drone, success is Boolean
 if success:
-    number = 1  # temporary counter
+    print("Successfully Connected to Bebop drone!")
+    print("Sleeping")
+    bebop.smart_sleep(3)
+    print("Ready!")
+    bebop.ask_for_state_update()
     takeoff = False
     while True:
         # acquire the keyboard hit if exists
@@ -38,7 +30,8 @@ if success:
             print(x.decode(), end='')  # temp
             if x == chr(27).encode():  # 'ESC' key to exit program
                 print("STOPPING")
-                bebop.disconnect()
+                success = bebop.disconnect()
+                print("Drone "+success+" to disconnect.")
                 exit()
             elif x.decode() == 't':
                 if takeoff:
@@ -82,10 +75,7 @@ if success:
             else:
                 if x.decode() in 'wasd':
                     print("Drone landed, please takeoff first!")
-        else:  # temp
-            # prints the number
-            # print(number)
-            # number += 1
+        else:
             # wait half a second
             time.sleep(0.5)
 else:

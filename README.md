@@ -1,20 +1,14 @@
-# DroneController
-Python Controller for Parrot Drones
+#DroneController
+Python Controller for Parrot Drones <br />
+Tested and worked with a Bebop2 drone (11/1/18) <br />
 
-Tested and worked with a Bebop2 drone (11/1/18)
+##Press the key for operation: <br />
+T –Take off <br />
+L –Land <br />
 
-Press the key for operation:
+W – Front tilt <br />
+A – Left tilt <br />
+S –  tilt <br />
+D – Right tilt <br />
 
-T –Take off
-
-L –Land
-
-W – Front tilt
-
-A – Left tilt
-
-S –  tilt
-
-D – Right tilt
-
-'ESC' - Exit
+'ESC' - Exit <br />
