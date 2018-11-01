@@ -49,27 +49,28 @@ if success:
                     print("Drone already landed.")
             elif takeoff:
                 if x.decode() == 'w':  # by default decodes to utf-8
-                    print("flip front")
+                    print("fly forwards")
                     print("flying state is %s" % bebop.sensors.flying_state)
-                    success = bebop.flip(direction="front")
+                    success = bebop.fly_direct(roll=0, pitch=50, yaw=0, vertical_movement=0, duration=1)
                     print("mambo flip result %s" % success)
                     bebop.smart_sleep(2)
                 elif x.decode() == 'a':
-                    print("flip left")
+                    print("tilt left")
                     print("flying state is %s" % bebop.sensors.flying_state)
-                    success = bebop.flip(direction="left")
+                    success = bebop.fly_direct(roll=-50, pitch=0, yaw=0, vertical_movement=0, duration=1)
                     print("mambo flip result %s" % success)
                     bebop.smart_sleep(2)
                 elif x.decode() == 's':
-                    print("flip back")
+                    print("fly backwards")
                     print("flying state is %s" % bebop.sensors.flying_state)
-                    success = bebop.flip(direction="back")
+                    success = bebop.fly_direct(roll=0, pitch=-50, yaw=0, vertical_movement=0, duration=1)
+                    success = bebop.fly_direct()
                     print("mambo flip result %s" % success)
                     bebop.smart_sleep(2)
                 elif x.decode() == 'd':
-                    print("flip right")
+                    print("tilt right")
                     print("flying state is %s" % bebop.sensors.flying_state)
-                    success = bebop.flip(direction="right")
+                    success = bebop.fly_direct(roll=50, pitch=0, yaw=0, vertical_movement=0, duration=1)
                     print("mambo flip result %s" % success)
                     bebop.smart_sleep(2)
             else:
