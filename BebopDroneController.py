@@ -15,6 +15,7 @@ def kbfunc():
 bebop = Bebop()
 print("Trying to connect...")
 success = bebop.connect(10) # attempts to connect to the drone, success is Boolean
+success = True
 if success:
     print("Successfully Connected to Bebop drone!")
     print("Sleeping")
@@ -31,19 +32,21 @@ if success:
             if x == chr(27).encode():  # 'ESC' key to exit program
                 print("STOPPING")
                 success = bebop.disconnect()
-                print("Drone "+success+" to disconnect.")
+                print("Drone %s to disconnect." % success)
                 exit()
             elif x.decode() == 't':
                 if takeoff:
                     print("Drone already took off!")
                 else:
                     print("Drone taking off...")
-                    bebop.safe_takeoff(5)
+                    success = bebop.safe_takeoff(5)
+                    print("Drone %s to take off!" % success)
                     takeoff = True
             elif x.decode() == 'l':
                 if takeoff:
                     print("Drone landing...")
-                    bebop.safe_land(5)
+                    success = bebop.safe_land(5)
+                    print("Drone %s to land!" % success)
                     takeoff = False
                 else:
                     print("Drone already landed.")
@@ -64,7 +67,6 @@ if success:
                     print("fly backwards")
                     print("flying state is %s" % bebop.sensors.flying_state)
                     success = bebop.fly_direct(roll=0, pitch=-50, yaw=0, vertical_movement=0, duration=1)
-                    success = bebop.fly_direct()
                     print("mambo directional control result is: %s" % success)
                     bebop.smart_sleep(2)
                 elif x.decode() == 'd':
@@ -86,7 +88,7 @@ if success:
                     print("mambo directional control result is: %s" % success)
                     bebop.smart_sleep(2)
             else:
-                if x.decode() in 'wasd':
+                if x.decode() in 'wasdqe':
                     print("Drone landed, please takeoff first!")
         else:
             # wait half a second
