@@ -16,5 +16,7 @@ W – Front tilt <br />
 A – Left tilt <br />
 S –  tilt <br />
 D – Right tilt <br />
+Q –  Ascend <br />
+E – Descend <br />
 
 'ESC' - Exit <br />

@@ -52,26 +52,38 @@ if success:
                     print("fly forwards")
                     print("flying state is %s" % bebop.sensors.flying_state)
                     success = bebop.fly_direct(roll=0, pitch=50, yaw=0, vertical_movement=0, duration=1)
-                    print("mambo flip result %s" % success)
+                    print("mambo directional control result is: %s" % success)
                     bebop.smart_sleep(2)
                 elif x.decode() == 'a':
                     print("tilt left")
                     print("flying state is %s" % bebop.sensors.flying_state)
                     success = bebop.fly_direct(roll=-50, pitch=0, yaw=0, vertical_movement=0, duration=1)
-                    print("mambo flip result %s" % success)
+                    print("mambo directional control result is: %s" % success)
                     bebop.smart_sleep(2)
                 elif x.decode() == 's':
                     print("fly backwards")
                     print("flying state is %s" % bebop.sensors.flying_state)
                     success = bebop.fly_direct(roll=0, pitch=-50, yaw=0, vertical_movement=0, duration=1)
                     success = bebop.fly_direct()
-                    print("mambo flip result %s" % success)
+                    print("mambo directional control result is: %s" % success)
                     bebop.smart_sleep(2)
                 elif x.decode() == 'd':
                     print("tilt right")
                     print("flying state is %s" % bebop.sensors.flying_state)
                     success = bebop.fly_direct(roll=50, pitch=0, yaw=0, vertical_movement=0, duration=1)
-                    print("mambo flip result %s" % success)
+                    print("mambo directional control result is: %s" % success)
+                    bebop.smart_sleep(2)
+                elif x.decode() == 'q':
+                    print("ascend")
+                    print("flying state is %s" % bebop.sensors.flying_state)
+                    success = bebop.fly_direct(roll=0, pitch=0, yaw=0, vertical_movement=50, duration=1)
+                    print("mambo directional control result is: %s" % success)
+                    bebop.smart_sleep(2)
+                elif x.decode() == 'e':
+                    print("descend")
+                    print("flying state is %s" % bebop.sensors.flying_state)
+                    success = bebop.fly_direct(roll=0, pitch=0, yaw=0, vertical_movement=-50, duration=1)
+                    print("mambo directional control result is: %s" % success))
                     bebop.smart_sleep(2)
             else:
                 if x.decode() in 'wasd':
