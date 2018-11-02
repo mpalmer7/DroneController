@@ -12,10 +12,10 @@ Tested and worked with a Bebop2 drone (11/1/18) <br />
 T –Take off <br />
 L –Land <br />
 
-W – Front tilt <br />
-A – Left tilt <br />
-S –  tilt <br />
-D – Right tilt <br />
+W – Tilt forwards <br />
+A – Tilt left <br />
+S – Tilt backwards <br />
+D – Tilt right <br />
 Q –  Ascend <br />
 E – Descend <br />
 
