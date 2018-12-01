@@ -21,6 +21,9 @@ def controller(drone):
 			print(x.decode(), end='')  # temp
 			if x == chr(27).encode():  # 'ESC' key to exit program
 				print("STOPPING")
+				if takeoff:
+					print("attempting to land before disconnecting")
+					drone.safe_landing(5)
 				success = drone.disconnect()
 				print("Drone %s to disconnect." % success)
 				exit()
@@ -80,7 +83,6 @@ def controller(drone):
 			else:
 				if x.decode() in 'wasdqe':
 					print("Drone landed, please takeoff first!")	
-		
 		
 		
 def main():
