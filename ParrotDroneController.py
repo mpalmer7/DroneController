@@ -1,5 +1,6 @@
 from pyparrot.Bebop import Bebop
 from pyparrot.Minidrone import Mambo
+#from pyparrot.Minidrone import Swing
 # msvcrt is a windows specific native module
 import msvcrt
 import time
@@ -88,19 +89,23 @@ def controller(drone):
 def main():
 	bebop2 = Bebop()
 	bebop1 = Bebop(drone_type="Bebop")
+	mac = None  # ToDo
 	mambo = Mambo(mac, use_wifi=True)
-	print("Trying to connect...")
-	success = bebop.connect(10) # attempts to connect to the drone, success is Boolean
-	success = True
-	
-	print("Successfully Connected to drone!")
-	print("Sleeping")
-	drone.smart_sleep(3)
-	print("Ready!")
-	drone.ask_for_state_update()
-	
-	else:
-		print("Could not connect to a drone.")
+	#swing = Swing(mac)
+	drone_list = [bebop2, bebop1, mambo]
+	for drone in drone_list:
+		print("Trying to connect to %s drone..." % 'TODO')
+		success = drone.connect(10) # attempts to connect to the drone, success is Boolean
+		if success:
+			print("Successfully Connected to drone!")
+			print("Sleeping")
+			drone.smart_sleep(3)
+			print("Ready!")
+			drone.ask_for_state_update()
+			
+			controller(drone)
+
+	print("Could not connect to a drone.")
 
 if __name__ == "__main__":
 	main()
